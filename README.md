@@ -19,4 +19,4 @@ npm run dev
   using the same file names, or change the names in the components.
 
 ## Deploy
-Pushing to `main` builds and publishes to GitHub Pages via `.github/workflows/deploy.yml`.
+Run `./deploy.sh` to build and publish `dist/` to the `gh-pages` branch, which GitHub Pages serves.
