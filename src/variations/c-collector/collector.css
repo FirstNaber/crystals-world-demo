@@ -1,0 +1,32 @@
+/* VARIATION C — THE COLLECTOR. Black / ivory / stone. Type is composition. */
+.v-c {
+  --bg: #0b0b0a; --fg: #ece6d9; --muted: #a39c8d; --line: rgba(236,230,217,.2); --surface: rgba(236,230,217,.06);
+  --accent: #ece6d9; --accent-fg: #0b0b0a;
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif; --body: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --radius: 0px; --btn-radius: 0px; --btn-case: uppercase; --btn-track: .2em; --btn-weight: 500; --btn-size: 11px;
+  --display-weight: 400; --display-track: -0.03em; --display-case: uppercase; --page-max: 1600px;
+  font-size: 15px;
+}
+.v-c .vx-btn:hover:not(:disabled) { background: transparent; color: var(--fg); border-color: var(--fg); }
+.v-c .vx-demobar { background: #ece6d9; color: #0b0b0a; letter-spacing: .16em; text-transform: uppercase; font-size: 10px; }
+.v-c .vx-sample { color: var(--muted); }
+.vc-mega { font-family: var(--display); text-transform: uppercase; letter-spacing: -0.045em; line-height: .8; font-weight: 400; }
+.vc-cat { font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); }
+.vc-outline { -webkit-text-stroke: 1px var(--fg); color: transparent; }
+.vc-marquee { display: flex; width: max-content; animation: vc-scroll 42s linear infinite; }
+.vc-marquee:hover { animation-play-state: paused; }
+@keyframes vc-scroll { to { transform: translate3d(-50%, 0, 0); } }
+.vc-strip { display: flex; gap: clamp(12px, 2vw, 28px); overflow-x: auto; scroll-snap-type: x proximity; padding-inline: clamp(16px, 4vw, 56px); scrollbar-width: none; overscroll-behavior-x: contain; }
+.vc-strip::-webkit-scrollbar { display: none; }
+.vc-strip > * { scroll-snap-align: start; flex: none; }
+.vc-row { display: grid; grid-template-columns: 4.2rem 1fr auto; gap: 1rem; align-items: baseline; width: 100%; text-align: left; padding: 1.1rem 0; border-bottom: 1px solid var(--line); color: var(--fg); background: none; border-inline: 0; border-top: 0; cursor: pointer; }
+.vc-row .vc-name { font-family: var(--display); text-transform: uppercase; font-size: clamp(1.6rem, 3.6vw, 3.4rem); letter-spacing: -.03em; line-height: 1; transition: transform .5s cubic-bezier(.2,.8,.2,1), color .3s; }
+.vc-row .vc-price { opacity: 0; transition: opacity .3s; font-size: 13px; letter-spacing: .08em; white-space: nowrap; }
+.vc-row[aria-expanded="true"] .vc-name, .vc-row:hover .vc-name { transform: translate3d(14px, 0, 0); }
+.vc-row[aria-expanded="true"] .vc-price, .vc-row:hover .vc-price, .vc-row:focus-visible .vc-price { opacity: 1; }
+.vc-row.is-sold .vc-name { color: var(--muted); text-decoration: line-through; text-decoration-thickness: 1px; }
+@media (hover: none) { .vc-row .vc-price { opacity: 1; } }
+.vc-tile { position: relative; overflow: hidden; background: var(--surface); }
+.vc-tile .vc-cover { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: .35rem; padding: 1rem; background: linear-gradient(0deg, rgba(0,0,0,.86), rgba(0,0,0,.05) 62%); opacity: 0; transition: opacity .35s; }
+.vc-tile:hover .vc-cover, .vc-tile.is-on .vc-cover, .vc-tile:focus-within .vc-cover { opacity: 1; }
+@media (hover: none) { .vc-tile .vc-cover { opacity: 1; } }
