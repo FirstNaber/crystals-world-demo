@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { BUSINESS } from '../../shared/content'
 import { useStore } from '../../shared/store'
 import { useTo } from '../../shared/variation'
+import { SignLogo } from '../../shared/SignLogo'
 import { CallLink, DemoBar, DirectionsLink } from '../../shared/ui/bits'
 
 export function Layout({ children }: { children: ReactNode }) {
@@ -14,7 +15,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <DemoBar />
       <header className="sticky top-0 z-50 border-b vx-line bg-[var(--bg)]/90 backdrop-blur">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 sm:px-8">
-          <Link to={to()} className="vx-display py-3 text-2xl leading-none tracking-[-0.01em]" >CW<span className="sr-only"> — Crystals World, home</span></Link>
+          <Link to={to()} className="py-3" aria-label="Crystals World, home"><SignLogo className="w-[150px] sm:w-[178px]" /></Link>
           <nav aria-label="Primary" className="flex items-center gap-5 sm:gap-9">
             <Link to={to('collection')} className={item}>Collection</Link>
             <Link to={to('wall')} className={item}><span className="max-sm:hidden">The </span>Wall</Link>
@@ -26,7 +27,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <main id="main" tabIndex={-1} className="outline-none">{children}</main>
       <footer className="border-t vx-line">
         <div className="mx-auto grid max-w-[1600px] gap-8 px-4 py-12 sm:px-8 md:grid-cols-12">
-          <p className="vc-mega text-[clamp(2.5rem,9vw,8rem)] md:col-span-7">Crystals<br />World</p>
+          <div className="md:col-span-7"><SignLogo className="w-full max-w-[760px]" label="Crystals World" /></div>
           <div className="vc-cat space-y-1 leading-6 md:col-span-3 md:col-start-9"><p className="mb-2">Visit</p>
             <DirectionsLink where="c_footer" className="block !text-[var(--fg)] hover:underline">{BUSINESS.address.street}<br />Austin, Texas {BUSINESS.address.postal}</DirectionsLink>
             <CallLink where="c_footer" className="block !text-[var(--fg)] hover:underline">{BUSINESS.phone}</CallLink></div>

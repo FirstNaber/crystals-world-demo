@@ -6,6 +6,7 @@ import { useStore } from '../../shared/store'
 import { useSeo } from '../../shared/seo'
 import { useTo } from '../../shared/variation'
 import { CallLink, DirectionsLink, Hours, MapEmbed } from '../../shared/ui/bits'
+import { SignLogo } from '../../shared/SignLogo'
 import { CollectionIndex } from './CollectionIndex'
 
 const WORDS = ['Crystals', 'Minerals', 'Jewelry', 'Austin', 'One of a kind']
@@ -27,9 +28,10 @@ export function Home() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/85" />
         <div className="relative mx-auto flex max-w-[1600px] flex-col justify-end px-4 pb-8 pt-16 sm:px-8" style={{ minHeight: 'calc(100svh - 96px)' }}>
           <p className="vc-cat mb-4 !text-[#ece6d9]">Austin, Texas — 3202 Guadalupe St</p>
-          <h1 id="open-h" className="vc-mega text-[clamp(3.2rem,17.5vw,17rem)]" style={{ mixBlendMode: 'normal' }}>
-            <span className="block overflow-hidden pb-[.04em]"><span data-rv="line" className="block"><span>Crystals</span></span></span>
-            <span className="block overflow-hidden pb-[.04em] sm:pl-[14vw]"><span data-rv="line" className="block"><span>World</span></span></span>
+          <h1 id="open-h" className="max-w-[1400px]">
+            <span data-rv="line" className="block"><span className="block">
+              <SignLogo label="Crystals World" className="w-full text-[#8d55ff]" style={{ filter: 'drop-shadow(.35vw .45vw 0 #1a0b3a) drop-shadow(0 0 2.2vw rgba(236,255,150,.3))' }} />
+            </span></span>
           </h1>
           <div className="mt-8 flex flex-wrap items-end justify-between gap-6 border-t border-white/25 pt-5">
             <p className="max-w-sm text-sm text-[#d9d3c6]">A collection of crystals, minerals and jewelry. Collect it in person on Guadalupe Street, or online.</p>

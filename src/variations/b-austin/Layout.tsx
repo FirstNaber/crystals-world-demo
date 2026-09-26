@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { BUSINESS } from '../../shared/content'
 import { useStore } from '../../shared/store'
 import { useTo } from '../../shared/variation'
+import { SignLogo } from '../../shared/SignLogo'
 import { CallLink, DemoBar, DirectionsLink, Signup } from '../../shared/ui/bits'
 
 const NAV: [string, string][] = [['Shop all', 'shop'], ['Crystals', 'shop?cat=crystals'], ['Minerals', 'shop?cat=minerals'], ['Jewelry', 'shop?cat=jewelry'], ['The Wall', 'wall'], ['Visit', 'visit']]
@@ -24,7 +25,7 @@ export function Layout({ children }: { children: ReactNode }) {
       </div>
       <header className="sticky top-0 z-40 border-b vx-line bg-[var(--bg)]/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between gap-4 px-4 sm:px-8">
-          <Link to={to()} className="vx-display py-3 text-[26px] leading-none" aria-label="Crystals World, home">Crystals <em className="font-normal">World</em></Link>
+          <Link to={to()} className="py-3" aria-label="Crystals World, home"><SignLogo className="w-[168px] sm:w-[196px]" /></Link>
           <nav aria-label="Primary" className="vb-nav hidden gap-7 lg:flex">
             {NAV.map(([label, path]) => <NavLink key={label} to={to(path)} end={!path.includes('?')} className="vx-link !no-underline">{label}</NavLink>)}
           </nav>
@@ -46,7 +47,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <footer className="mt-24 bg-[#2b211a] text-[#efe4d0]">
         <div className="mx-auto grid max-w-[1280px] gap-10 px-4 py-14 sm:px-8 md:grid-cols-12">
           <div className="md:col-span-5">
-            <p className="vx-display text-3xl">Crystals <em className="font-normal">World</em></p>
+            <SignLogo className="w-[240px]" label="Crystals World" />
             <p className="mt-3 max-w-sm text-sm text-[#d7c9b1]">Crystals, minerals and jewelry on Guadalupe Street in Austin, Texas. Retail and wholesale. Shipped by USPS, UPS and DHL.</p>
             <Signup className="mt-8 [&_.vx-btn]:!bg-[#e7c89b] [&_.vx-btn]:!border-[#e7c89b] [&_.vx-btn]:!text-[#2b211a] [&_.vx-input]:!border-white/30 [&_.vx-input]:!text-white [&_.vx-muted]:!text-[#d7c9b1]" title="New arrivals, first." />
           </div>
