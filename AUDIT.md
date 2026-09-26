@@ -41,6 +41,12 @@ Not in base but in the other repos: `amethyst-heart-instore`, `citrine-heart` (r
 No logo file exists — the wordmark is type (`CRYSTALS World`). No OG image exists (to be generated from the storefront photo).
 Fonts so far: Cormorant Garamond, Manrope, (neon: Oswald), (store: Bricolage Grotesque, DM Sans/Mono) — all Google Fonts.
 
+### 4b. Additional real sources found during the audit
+- **Yelp business photos** (yelp.com/biz/crystals-world-austin): 3 product shots at 1000 px — an amethyst crescent cluster, an amethyst cluster “tower” on an acrylic stand, an amethyst cluster slab on a white stand. Sharpest images available.
+- **TikTok @crystals_world01 video covers** (503×720, the shop’s own posts, 51 fetched): higher-resolution versions of the hearts/freeforms already known, plus new pieces the shop itself lists as “Available for sale”: pistachio calcite heart, iron tiger-eye freeform, blue aragonite moon, fluorite specimens, epidote quartz, lapis triple-strand necklace, Herkimer diamond pendant, jade pendant, garnet earrings, etc. Also interior shots (window with geodes, jewelry cases, mineral case, citrine lineup) and the storefront at night.
+- TikTok captions are the shop’s own words: “Retail & wholesale supplier of Crystals, Minerals, gemstone and Jewelry”, “Shipment: USPS, UPS and DHL”, “Delivery: 🇺🇸 & 🌍”, “For more details please DM”, “Citrine … from Brazil”.
+- Nothing here gives prices, hours, dimensions or stock counts.
+
 ## 5. Code worth reusing (report at end will list what was actually reused)
 - **`-store`/`-refined`/`-neon` commerce**: `state/cart.tsx` (localStorage cart, caps one-of-a-kind at 1, gift cards), `pages/Checkout.tsx` (mock ship vs pickup, gift wrap/note), `pages/Shop.tsx` (search, type/color/size/price/intention filters, sort, "show sold"), `pages/Product.tsx`, `data/products.ts` (9 real-photo products, science vs. tradition split, sold state), `components/bits.tsx` (open badge, product card, field card), `pages/Events.tsx`, `pages/GiftCards.tsx`, `pages/Policies.tsx`, `pages/Visit.tsx` (map embed, contact form), `components/Seo.tsx`.
 - **`-neon`**: `data/feed.ts` + `components/Video.tsx` (TikTok referenced, loaded on click), `pages/Wholesale.tsx`.
