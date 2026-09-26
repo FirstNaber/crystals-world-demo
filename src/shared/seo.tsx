@@ -29,7 +29,8 @@ export function useSeo({ title, description, image, jsonLd }: { title: string; d
       const s = document.createElement('script'); s.type = 'application/ld+json'; s.dataset.seo = '1'
       s.textContent = JSON.stringify(data); document.head.appendChild(s)
     }
-  }, [title, description, image, jsonLd])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [title, description, image, JSON.stringify(jsonLd ?? null)])
 }
 
 /** Note: no aggregateRating — Google does not allow self-published review stars on a business's own site. */
