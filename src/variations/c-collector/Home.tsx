@@ -30,7 +30,7 @@ export function Home() {
           <p className="vc-cat mb-4 !text-[#ece6d9]">Austin, Texas — 3202 Guadalupe St</p>
           <h1 id="open-h" className="max-w-[1400px]">
             <span data-rv="line" className="block"><span className="block">
-              <SignLogo label="Crystals World" className="w-full text-[#8d55ff]" style={{ filter: 'drop-shadow(.35vw .45vw 0 #1a0b3a) drop-shadow(0 0 2.2vw rgba(236,255,150,.3))' }} />
+              <SignLogo label="Crystals World" className="w-full text-[#8d55ff]" style={{ filter: 'drop-shadow(.3vw .4vw 0 #1a0b3a)' }} />
             </span></span>
           </h1>
           <div className="mt-8 flex flex-wrap items-end justify-between gap-6 border-t border-white/25 pt-5">

@@ -45,7 +45,7 @@ export const ADDRESS_LINE = `${BUSINESS.address.street}, ${BUSINESS.address.city
 export const TEL_HREF = `tel:${BUSINESS.phoneE164}`
 
 export const money = (n: number | null | undefined) =>
-  n == null ? '[PLACEHOLDER: price]' : `$${n.toLocaleString('en-US', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 })}`
+  n == null ? 'Price on request' : `$${n.toLocaleString('en-US', { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 })}`
 
 /** Demo-only numbers the checkout needs. Replace with platform settings in production. */
 export const DEMO = {

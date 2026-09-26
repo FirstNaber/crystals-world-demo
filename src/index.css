@@ -143,3 +143,6 @@
   [data-rv], [data-rv] > * { opacity: 1 !important; transform: none !important; clip-path: none !important; }
   [data-rv="line"] > * { transform: none !important; }
 }
+
+/* details the shop still has to confirm: quiet, never a raw placeholder in front of a client */
+.vx-tbc { opacity: .55; font-style: italic; }

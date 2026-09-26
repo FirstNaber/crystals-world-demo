@@ -4,7 +4,7 @@ import { Img } from '../../shared/Img'
 import { useStore } from '../../shared/store'
 import { useSeo } from '../../shared/seo'
 import { useTo } from '../../shared/variation'
-import { CallLink, DirectionsLink, Hours, MapEmbed, Ph, Signup, Stars } from '../../shared/ui/bits'
+import { CallLink, DirectionsLink, Hours, MapEmbed, Signup, Stars } from '../../shared/ui/bits'
 import { ProductCard } from './parts'
 
 const Step = ({ n, label }: { n: string; label: string }) => <p className="vb-step">{n} — {label}</p>
@@ -103,7 +103,6 @@ export function Home() {
           <div className="md:col-span-5">
             <h2 id="visit-h" className="vx-display text-4xl sm:text-5xl">Come see it in person.</h2>
             <address className="mt-6 not-italic text-lg font-semibold">{BUSINESS.address.street}<br />Austin, TX {BUSINESS.address.postal}</address>
-            <p className="mt-2 text-sm"><Ph>parking</Ph></p>
             <div className="mt-6 flex flex-wrap gap-3"><DirectionsLink where="b_home_visit" className="vx-btn">Get directions</DirectionsLink><CallLink where="b_home_visit" className="vx-btn-ghost">Call the shop</CallLink></div>
             <Signup className="vb-card mt-8 p-6" />
           </div>

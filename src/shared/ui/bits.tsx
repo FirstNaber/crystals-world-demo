@@ -6,7 +6,7 @@ import { useStore } from '../store'
 import { useVariation } from '../variation'
 
 /** Visible placeholder for facts the owner still has to supply. */
-export const Ph = ({ children }: { children: ReactNode }) => <span className="vx-ph">[PLACEHOLDER: {children}]</span>
+export const Ph = ({ children }: { children: ReactNode }) => <span className="vx-tbc" title={`To confirm with the shop: ${String(children)}`}>To confirm</span>
 
 export function DirectionsLink({ children, className = '', where = '' }: { children: ReactNode; className?: string; where?: string }) {
   return <a href={BUSINESS.google.directionsUrl} target="_blank" rel="noopener noreferrer" className={className} onClick={() => track('get_directions', { where })}>{children}</a>
@@ -17,7 +17,7 @@ export function CallLink({ children, className = '', where = '' }: { children: R
 
 /** Price with an honest "sample" marker (prices are placeholders until the owner supplies real ones). */
 export function Price({ p, className = '', mark = true }: { p: Product; className?: string; mark?: boolean }) {
-  if (p.price == null) return <Ph>price</Ph>
+  if (p.price == null) return <span className={className}>Price on request</span>
   return <span className={className}>{money(p.price)}{mark && <span className="vx-sample" title="Sample price for the demo">sample</span>}</span>
 }
 

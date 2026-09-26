@@ -17,7 +17,7 @@ export function WallLabel({ p, className = '', link = true }: { p: Product; clas
     <div className={`ga-label ${className}`}>
       <p>{p.no} · Room {ROOM[p.category].n}</p>
       <p className="ga-title mt-2">{link ? <Link to={to(`${v.shop}/${p.slug}`)} className="hover:italic">{p.name}</Link> : p.name}</p>
-      <p className="mt-2">{p.material ?? '[PLACEHOLDER: material]'}{p.origin ? <><br />{p.origin}</> : null}</p>
+      <p className="mt-2">{p.material ?? 'Material to confirm'}{p.origin ? <><br />{p.origin}</> : null}</p>
       <p className="mt-2"><b>{sold ? 'Sold' : p.price == null ? 'Price on request' : money(p.price)}</b>{!sold && p.price != null && <span className="ml-2 opacity-70">sample price</span>}{p.one_of_a_kind && !sold ? ' · unique' : ''}</p>
       {!sold && p.price != null && (
         <button className="ga-acquire mt-1" onClick={() => add(p.slug)} aria-label={`${inBag ? 'In your bag' : 'Acquire'}: ${p.name}`}>{inBag ? 'In your bag' : 'Acquire'}</button>)}
