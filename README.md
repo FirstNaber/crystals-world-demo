@@ -1,21 +1,32 @@
-# Crystals World — website concept demo
+# Crystals World — website proposal (three directions + shared store)
 
-A concept homepage for Crystals World, a rock & crystal shop at 3202 Guadalupe St Ste C, Austin, TX.
-Built as a demo for the owner; not the official site (it is marked `noindex`).
+Pitch demo for Crystals World, 3202 Guadalupe St Ste C, Austin TX. Sample prices, mock checkout, no real payments.
+Vite · React 19 · TypeScript · Tailwind v4 · React Router. The live original site lives on `main` and is untouched.
 
-**Stack:** Vite · React · TypeScript · Tailwind CSS v4 · Motion · Lenis
+| Route | What |
+|---|---|
+| `/` | Compare page |
+| `/original` | The original one-page demo (unchanged) |
+| `/variation-a-gallery` | A · The Gallery |
+| `/variation-b-austin` | B · The Austin Destination |
+| `/variation-c-collector` | C · The Collector |
+| `/owner` | Owner catalog demo |
 
-## Run locally
+## Run
 ```
 npm install
-npm run dev
+npm run build          # tsc + vite build + prerender (81 routes)
+npx vite preview --port 4180
 ```
+Open http://localhost:4180/crystals-world-variations/  · dev: `npm run dev`.
 
-## Edit
-- Business facts and review quotes: `src/site.ts` (verified info only)
-- Sections: `src/components/`
-- Photos: `public/images/`. These are the shop's own photos (some small files were enlarged and sharpened for display).
-  Replace them with larger originals using the same file names.
+## Where things are
+- `src/content/` business facts, products, policies (owner-editable) · `assets-src/` source photos → `npm run images` → `public/img` (AVIF+JPEG)
+- `src/shared/` store/cart/checkout/SEO/analytics/UI shared by all three · `src/variations/*` the three designs
+- `AUDIT.md` sources & facts · `HANDOFF.md` build notes · `REPORT.md` final report · `docs/GOING-LIVE.md` platform, POS sync, tax
+- `docs/screenshots/` desktop 1440 + mobile 390 for every variation
 
-## Deploy
-Run `./deploy.sh` to build and publish `dist/` to the `gh-pages` branch, which GitHub Pages serves.
+## Deploy a preview
+GitHub Pages (used): `BASE_PATH=/crystals-world-variations/ npm run build`, then publish `dist/` to a `gh-pages` branch.
+Netlify: `BASE_PATH=/ npm run build && npx netlify deploy --dir=dist --prod` (needs `netlify login`).
+Vercel: `BASE_PATH=/ npm run build && npx vercel deploy dist --prod` (needs `vercel login`). The `404.html` fallback covers order-confirmation URLs on Pages; on Netlify/Vercel add a rewrite `/* → /index.html 200`.

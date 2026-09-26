@@ -40,7 +40,7 @@ export function Layout({ children }: { children: ReactNode }) {
             <Link to={to('visit')} className={`${item} hidden lg:inline-flex`}>Visit · 3202 Guadalupe</Link>
             <Link to={to('collection')} className={`${item} hidden md:inline-flex`}>Collection</Link>
             <button ref={indexBtn} className={`${item} inline-flex`} aria-expanded={index} aria-controls="ga-index" onClick={() => setIndex(true)}>Index</button>
-            <button className={`${item} inline-flex`} onClick={() => setOpen(true)} aria-label={`Bag, ${count} ${count === 1 ? 'item' : 'items'}`}>Bag ({count})</button>
+            <button className={`${item} inline-flex`} onClick={() => setOpen(true)} aria-label={`Bag (${count}), ${count} ${count === 1 ? 'item' : 'items'}`}>Bag ({count})</button>
           </nav>
         </div>
       </header>
@@ -79,7 +79,7 @@ export function Layout({ children }: { children: ReactNode }) {
           </div>
           <div className="ga-label space-y-1">
             <p className="ga-tiny mb-3">Colophon</p>
-            {['shipping', 'returns', 'privacy', 'terms'].map((s) => <p key={s}><Link className="underline capitalize" to={to(`policies/${s}`)}>{s}</Link></p>)}
+            {['shipping', 'returns', 'privacy', 'terms'].map((s) => <p key={s}><Link className="inline-block py-2 underline capitalize" to={to(`policies/${s}`)}>{s}</Link></p>)}
             <p className="pt-2">Photographs: the shop’s own.</p>
           </div>
         </div>

@@ -30,7 +30,7 @@ export function Layout({ children }: { children: ReactNode }) {
           </nav>
           <div className="flex items-center gap-2">
             <Link to={to('visit')} className="vx-btn !min-h-11 !px-5 max-sm:hidden">Visit the shop</Link>
-            <button className="vx-btn-ghost !min-h-11 !px-4" onClick={() => setOpen(true)} aria-label={`Cart, ${count} ${count === 1 ? 'item' : 'items'}`}>Cart ({count})</button>
+            <button className="vx-btn-ghost !min-h-11 !px-4" onClick={() => setOpen(true)} aria-label={`Cart (${count}), ${count} ${count === 1 ? 'item' : 'items'}`}>Cart ({count})</button>
             <button className="vx-btn-ghost !min-h-11 !px-4 lg:hidden" aria-expanded={menu} aria-controls="b-menu" onClick={() => setMenu((m) => !m)}>{menu ? 'Close' : 'Menu'}</button>
           </div>
         </div>

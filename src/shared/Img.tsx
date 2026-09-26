@@ -21,7 +21,7 @@ export function Img({ name, alt, sizes = '100vw', className = '', priority = fal
       <source type="image/avif" srcSet={srcset('avif')} sizes={sizes} />
       <img src={`${w(m.widths[0])}.jpg`} srcSet={srcset('jpg')} sizes={sizes} width={largest} height={height} alt={alt}
         className={className} style={style} loading={priority ? 'eager' : 'lazy'} decoding={priority ? 'sync' : 'async'}
-        {...(priority ? { fetchpriority: 'high' } : {})} />
+        fetchPriority={priority ? 'high' : undefined} />
     </picture>
   )
 }

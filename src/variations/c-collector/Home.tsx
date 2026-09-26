@@ -54,7 +54,7 @@ export function Home() {
         <ul ref={strip} className="vc-strip" tabIndex={0} aria-label="New plates, scroll sideways">
           {works.map((p, i) => (
             <li key={p.slug} className={i % 2 ? 'mt-16 w-[62vw] sm:w-[36vw] lg:w-[26vw]' : 'w-[70vw] sm:w-[40vw] lg:w-[30vw]'}>
-              <Link to={to(`collection/${p.slug}`)} className="group block" aria-label={`${p.name}, ${p.no}`}>
+              <Link to={to(`collection/${p.slug}`)} className="group block">
                 <div className="overflow-hidden"><Img name={p.images[0]} alt={`${p.name}: ${p.description}`} sizes="(min-width:1024px) 30vw, 70vw" className={`w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.04] ${i % 2 ? 'aspect-[4/5]' : 'aspect-[3/4]'}`} /></div>
                 <p className="vc-cat mt-3">{p.no} — {p.category}</p>
                 <p className="vx-display text-2xl leading-none">{p.name}</p>

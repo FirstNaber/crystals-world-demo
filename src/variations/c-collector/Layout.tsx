@@ -14,11 +14,11 @@ export function Layout({ children }: { children: ReactNode }) {
       <DemoBar />
       <header className="sticky top-0 z-50 border-b vx-line bg-[var(--bg)]/90 backdrop-blur">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 sm:px-8">
-          <Link to={to()} className="vx-display py-3 text-2xl leading-none tracking-[-0.03em]" aria-label="Crystals World, home">CW</Link>
+          <Link to={to()} className="vx-display py-3 text-2xl leading-none tracking-[-0.03em]" >CW<span className="sr-only"> — Crystals World, home</span></Link>
           <nav aria-label="Primary" className="flex items-center gap-5 sm:gap-9">
             <Link to={to('collection')} className={item}>Collection</Link>
             <Link to={to('visit')} className={item}>Visit</Link>
-            <button className={item} onClick={() => setOpen(true)} aria-label={`Bag, ${count} ${count === 1 ? 'item' : 'items'}`}>Bag ({count})</button>
+            <button className={item} onClick={() => setOpen(true)} aria-label={`Bag (${count}), ${count} ${count === 1 ? 'item' : 'items'}`}>Bag ({count})</button>
           </nav>
         </div>
       </header>

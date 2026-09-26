@@ -20,17 +20,18 @@ const store = {
   hasMap: biz.google.profileUrl, sameAs: [biz.social.instagram, biz.social.tiktok, biz.social.facebook, biz.social.yelp],
 }
 const VAR = [
-  { base: 'variation-a-gallery', shop: 'collection', name: 'The Gallery' },
-  { base: 'variation-b-austin', shop: 'shop', name: 'The Austin Destination' },
-  { base: 'variation-c-collector', shop: 'collection', name: 'The Collector' },
+  { base: 'variation-a-gallery', shop: 'collection', name: 'The Gallery', lcp: 'amethyst-tower', sizes: '(min-width:768px) 56vw, 100vw' },
+  { base: 'variation-b-austin', shop: 'shop', name: 'The Austin Destination', lcp: 'storefront-night', sizes: '(min-width:768px) 50vw, 100vw' },
+  { base: 'variation-c-collector', shop: 'collection', name: 'The Collector', lcp: 'amethyst-slab', sizes: '100vw' },
 ]
+const preload = (name, sizes) => { const m = images[name]; const set = m.widths.map((w) => `${BASE}img/${name}-${w}.avif ${w}w`).join(', '); return `<link rel="preload" as="image" type="image/avif" imagesrcset="${set}" imagesizes="${sizes}" fetchpriority="high" />` }
 const routes = [
   { path: '', title: 'Crystals World — website proposal', desc: 'Compare three directions for the Crystals World website.' },
   { path: 'original', title: 'Crystals World — Rock & Crystal Shop in Austin, TX', desc: 'Crystals, minerals and jewelry at 3202 Guadalupe St, Austin.' },
   { path: 'owner', title: 'Owner catalog — Crystals World', desc: 'Add, price and mark pieces sold.' },
 ]
 for (const v of VAR) {
-  routes.push({ path: v.base, title: `Crystals World — Crystal & Mineral Shop in Austin, TX`, desc: `Crystals, minerals and jewelry at ${biz.address.street}, Austin. Shop one-of-a-kind pieces online with free in-store pickup.`, ld: [store] })
+  routes.push({ path: v.base, preload: preload(v.lcp, v.sizes), title: `Crystals World — Crystal & Mineral Shop in Austin, TX`, desc: `Crystals, minerals and jewelry at ${biz.address.street}, Austin. Shop one-of-a-kind pieces online with free in-store pickup.`, ld: [store] })
   routes.push({ path: `${v.base}/${v.shop}`, title: `Shop crystals, minerals & jewelry — Crystals World, Austin`, desc: 'One-of-a-kind crystals, mineral specimens and jewelry from our Austin shop. Ship or pick up free on Guadalupe St.', ld: [store] })
   routes.push({ path: `${v.base}/visit`, title: `Visit Crystals World — 3202 Guadalupe St, Austin TX`, desc: `Directions, phone and hours for Crystals World, ${biz.address.street}, Austin, TX ${biz.address.postal}.`, ld: [store] })
   routes.push({ path: `${v.base}/checkout`, title: 'Checkout — Crystals World', desc: 'Checkout' })
@@ -48,6 +49,7 @@ for (const r of routes) {
     `<link rel="canonical" href="${esc(url)}" />`,
     `<meta property="og:url" content="${esc(url)}" />`,
     ...(r.image ? [`<meta property="og:image" content="${esc(r.image)}" />`] : []),
+    ...(r.preload ? [r.preload] : []),
     ...(r.ld ?? []).map((d) => `<script type="application/ld+json">${JSON.stringify(d).replace(/</g, '\\u003c')}</script>`),
   ].join('\n    ')
   let html = tpl
