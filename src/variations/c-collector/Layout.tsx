@@ -15,8 +15,8 @@ export function Layout({ children }: { children: ReactNode }) {
       <DemoBar />
       <header className="sticky top-0 z-50 border-b vx-line bg-[var(--bg)]/90 backdrop-blur">
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 sm:px-8">
-          <Link to={to()} className="py-3" aria-label="Crystals World, home"><SignLogo className="w-[150px] sm:w-[178px]" /></Link>
-          <nav aria-label="Primary" className="flex items-center gap-5 sm:gap-9">
+          <Link to={to()} className="py-3" aria-label="Crystals World, home"><SignLogo className="w-[104px] sm:w-[178px]" /></Link>
+          <nav aria-label="Primary" className="flex items-center gap-3.5 sm:gap-9">
             <Link to={to('collection')} className={item}>Collection</Link>
             <Link to={to('wall')} className={item}><span className="max-sm:hidden">The </span>Wall</Link>
             <Link to={to('visit')} className={item}>Visit</Link>

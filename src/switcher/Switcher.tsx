@@ -90,7 +90,7 @@ export default function Switcher() {
             <p className="mt-2 text-[15px] text-black/70">Not part of the launch. Once the site is live and selling, we can add any of these. Each is quoted separately.</p>
             <ul className="mt-6 divide-y divide-black/10 text-[15px]">
               <li className="py-4"><b>Connect your channels.</b> eBay, Facebook and Instagram, TikTok and your counter on one inventory, so a piece sold anywhere shows as sold everywhere. <span className="text-black/55">Quoted after a short call.</span></li>
-              <li className="py-4"><b>Sell straight from TikTok.</b> Paste a video link and the listing fills itself in; <Link className="underline" to="/variation-b-austin/wall">the Wall</Link> shows every piece you’ve filmed. <span className="text-black/55">Quoted after a short call.</span></li>
+              <li className="py-4"><b>Sell straight from TikTok.</b> Paste a video link and the listing fills itself in; <Link className="underline" to="/variation-c-collector/wall">the Wall</Link> shows every piece you’ve filmed. <span className="text-black/55">Quoted after a short call.</span></li>
             </ul>
           </section>
         </div>
