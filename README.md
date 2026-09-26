@@ -14,9 +14,8 @@ npm run dev
 ## Edit
 - Business facts and review quotes: `src/site.ts` (verified info only)
 - Sections: `src/components/`
-- Photos: `public/images/`. All current photos are placeholders from Wikimedia Commons
-  (credits in `src/credits.json` and in the site footer). Replace them with the store's own photography
-  using the same file names, or change the names in the components.
+- Photos: `public/images/`. These are the shop's own photos (some small files were enlarged and sharpened for display).
+  Replace them with larger originals using the same file names.
 
 ## Deploy
 Run `./deploy.sh` to build and publish `dist/` to the `gh-pages` branch, which GitHub Pages serves.

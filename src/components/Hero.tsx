@@ -21,25 +21,25 @@ export function Hero() {
 
   return (
     <section ref={ref} id="top" className="grain relative flex min-h-[100svh] flex-col overflow-hidden bg-ink text-ivory">
-      {/* photograph */}
-      <motion.div className="absolute inset-0" style={{ y }}>
+      {/* photograph: the real citrine heart, on the right; the left fades to black under the headline */}
+      <motion.div className="absolute inset-y-0 right-0 w-full md:w-[58%]" style={{ y }}>
         <motion.img
-          src={img('hero-fluorite')}
-          alt="Amber fluorite crystals, lit from within"
-          className="h-full w-full object-cover object-[68%_50%] md:object-[center_55%]"
+          src={img('hero-citrine-heart')}
+          alt="A heart of golden citrine druzy on a gold chain-link stand at Crystals World"
+          className="h-full w-full object-cover object-[50%_45%]"
           style={{ scale }}
-          initial={reduce ? false : { opacity: 0, scale: 1.12 }}
+          initial={reduce ? false : { opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2.4, ease: EASE, delay: 0.3 }}
         />
       </motion.div>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,14,12,.9)_0%,rgba(15,14,12,.55)_45%,rgba(15,14,12,.1)_75%)] md:bg-[linear-gradient(90deg,rgba(15,14,12,.88)_0%,rgba(15,14,12,.45)_42%,rgba(15,14,12,0)_70%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(15,14,12,.92)_0%,rgba(15,14,12,.6)_35%,rgba(15,14,12,.05)_70%)] md:bg-[linear-gradient(90deg,#0f0e0c_0%,#0f0e0c_42%,rgba(15,14,12,.55)_58%,rgba(15,14,12,0)_82%)]" />
       <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink/95 via-ink/60 to-transparent md:h-1/2 md:via-transparent" />
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink/70 to-transparent" />
 
       <motion.div style={{ opacity: fade }} className="container-x relative z-10 flex flex-1 flex-col justify-end pb-12 pt-36 md:justify-center md:pb-24">
         <motion.p
-          className="eyebrow mb-8 flex items-center gap-4 text-ivory/70"
+          className="eyebrow mb-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-ivory/70"
           initial={reduce ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.7 }}

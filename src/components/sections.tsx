@@ -1,17 +1,16 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { useRef, useState } from 'react'
 import { SITE, img } from '../site'
-import credits from '../credits.json'
 import { Button, Lines, Photo, Reveal, Stars } from './ui'
 import { Logo } from './Nav'
 
 /* ──────────────────────────── 2 · THE COLLECTION ──────────────────────────── */
 
 const CATEGORIES = [
-  { name: 'Crystals', note: 'Clusters, points & geodes', src: 'amethyst-cathedral', alt: 'Two amethyst geodes lined with deep purple crystals', pos: '50% 45%', span: 'md:col-span-5 md:row-span-2 aspect-[4/5] md:aspect-auto' },
-  { name: 'Minerals', note: 'Specimens with character', src: 'azurite', alt: 'A deep blue azurite mineral specimen', pos: '50% 50%', span: 'md:col-span-7 aspect-[4/3] md:aspect-auto md:h-[440px]' },
-  { name: 'Jewelry', note: 'Stones made to be worn', src: 'rock-crystal-necklace', alt: 'A clear rock crystal necklace on black', pos: '50% 50%', span: 'md:col-span-4 aspect-[4/5] md:aspect-auto md:h-[520px]' },
-  { name: 'Collector Pieces', note: 'The ones worth a second look', src: 'emerald-matrix', alt: 'A green emerald crystal set in white matrix rock', pos: '50% 50%', span: 'md:col-span-3 aspect-[4/5] md:aspect-auto md:h-[520px]' },
+  { name: 'Crystals', note: 'Clusters, points & geodes', src: 'citrine-cluster', alt: 'A large honey-orange citrine cluster on a gold stand in the shop', pos: '50% 40%', span: 'md:col-span-5 md:row-span-2 aspect-[4/5] md:aspect-auto' },
+  { name: 'Minerals', note: 'Specimens with character', src: 'shop-case-clusters', alt: 'A glass display case of mineral clusters in the shop', pos: '50% 62%', span: 'md:col-span-7 aspect-[4/3] md:aspect-auto md:h-[440px]' },
+  { name: 'Jewelry', note: 'Stones made to be worn', src: 'lapis-necklace', alt: 'A necklace of deep blue lapis lazuli beads on a display bust', pos: '50% 40%', span: 'md:col-span-4 aspect-[4/5] md:aspect-auto md:h-[520px]' },
+  { name: 'Collector Pieces', note: 'The ones worth a second look', src: 'banded-vase', alt: 'A carved vase of banded white and blue-gray stone on a wooden base', pos: '50% 50%', span: 'md:col-span-3 aspect-[4/5] md:aspect-auto md:h-[520px]' },
 ]
 
 export function Collection() {
@@ -102,7 +101,7 @@ export function Visit() {
       <div className="container-x grid items-center gap-12 lg:grid-cols-12">
         <div className="relative lg:col-span-7">
           <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[5/4] lg:aspect-[6/5]">
-            <motion.img src={img('quartz-points')} alt="Clear quartz crystal points" style={{ y }} className="absolute inset-[-10%] h-[120%] w-[120%] max-w-none object-cover" loading="lazy" />
+            <motion.img src={img('storefront-night')} alt="The Crystals World storefront at night under its glowing purple sign" style={{ y }} className="absolute inset-[-10%] h-[120%] w-[120%] max-w-none object-cover" loading="lazy" />
           </div>
           {/* address plate */}
           <Reveal className="absolute -bottom-10 left-4 right-4 sm:left-auto sm:right-[-2rem] sm:w-[360px] lg:right-[-4rem]">
@@ -149,13 +148,13 @@ export function Experience() {
         </div>
 
         <div className="mt-16 grid grid-cols-6 gap-4 md:mt-24 md:grid-cols-12 md:gap-5">
-          <Photo src={img('mineral-gallery')} alt="Shelves of mineral specimens on display" className="col-span-6 aspect-[3/2] md:col-span-8 md:aspect-[16/10]" />
+          <Photo src={img('shop-counter')} alt="The shop counter and glass cases full of crystals, minerals and jewelry" position="50% 55%" className="col-span-6 aspect-[3/2] md:col-span-8 md:aspect-[16/10]" />
           <div className="col-span-6 grid grid-cols-2 gap-4 md:col-span-4 md:grid-cols-1 md:gap-5">
-            <Photo src={img('agate')} alt="A banded agate, cut and polished" className="aspect-square md:aspect-[4/3]" />
-            <Photo src={img('celestine')} alt="Pale blue celestine crystals" className="aspect-square md:aspect-[4/3]" />
+            <Photo src={img('amethyst-cluster')} alt="An amethyst cluster on a black stand above a woven basket" className="aspect-square md:aspect-[4/3]" />
+            <Photo src={img('lapis-freeform')} alt="A polished lapis lazuli freeform in a wooden holder next to a succulent" position="50% 60%" className="aspect-square md:aspect-[4/3]" />
           </div>
-          <Photo src={img('malachite')} alt="Banded green malachite" className="col-span-3 aspect-[4/5] md:col-span-3 md:col-start-2 md:-mt-24" />
-          <Photo src={img('rhodochrosite')} alt="Pink banded rhodochrosite" className="col-span-3 aspect-[4/5] md:col-span-3 md:mt-10" />
+          <Photo src={img('amethyst-heart')} alt="A heart of amethyst druzy on a stand in front of green plants" position="50% 45%" className="col-span-3 aspect-[4/5] md:col-span-3 md:col-start-2 md:-mt-24" />
+          <Photo src={img('citrine-lineup')} alt="A lineup of citrine and amethyst pieces on stands, set out on a wooden table" position="50% 60%" className="col-span-3 aspect-[4/5] md:col-span-3 md:mt-10" />
           <Reveal className="col-span-6 self-center md:col-span-4 md:col-start-9">
             <blockquote className="font-serif text-3xl font-light italic leading-snug md:text-4xl">“{SITE.quotes[2]}”</blockquote>
             <p className="eyebrow mt-5 text-taupe">Google review</p>
@@ -169,12 +168,12 @@ export function Experience() {
 /* ──────────────────────────── 6 · FEATURED PIECES ──────────────────────────── */
 
 const PIECES = [
-  { label: 'Amethyst', src: 'amethyst-cathedral', pos: '28% 50%', alt: 'Amethyst geode' },
-  { label: 'Mineral Specimen', src: 'pyrite', pos: '50% 50%', alt: 'Gold pyrite cubes on matrix' },
-  { label: 'Collector Piece', src: 'tourmaline', pos: '50% 40%', alt: 'Green tourmaline crystal with albite' },
-  { label: 'Agate', src: 'blue-agate', pos: '50% 50%', alt: 'A polished blue agate slice' },
-  { label: 'Crystal Cluster', src: 'amethyst', pos: '50% 50%', alt: 'Pale amethyst crystal cluster' },
-  { label: 'Collector Piece', src: 'opal', pos: '50% 50%', alt: 'A polished boulder opal' },
+  { label: 'Amethyst', src: 'amethyst-heart', pos: '50% 45%', alt: 'Amethyst druzy heart on a stand' },
+  { label: 'Citrine', src: 'hero-citrine-heart', pos: '50% 50%', alt: 'Citrine druzy heart on a gold chain-link stand' },
+  { label: 'Lapis Lazuli', src: 'lapis-freeform', pos: '50% 45%', alt: 'Polished lapis lazuli freeform in a wooden holder' },
+  { label: 'Collector Piece', src: 'banded-vase', pos: '50% 50%', alt: 'Carved vase of banded white and blue-gray stone' },
+  { label: 'Amethyst Cluster', src: 'amethyst-cluster', pos: '50% 50%', alt: 'Amethyst cluster on a black tripod stand' },
+  { label: 'Lapis Heart', src: 'lapis-heart', pos: '50% 50%', alt: 'Carved lapis lazuli heart on a gold ring stand' },
 ]
 
 export function Featured() {
@@ -252,8 +251,12 @@ export function FinalCta() {
   const scale = useTransform(scrollYProgress, [0, 1], reduce ? [1, 1] : [1.25, 1])
   return (
     <section ref={ref} className="grain relative flex min-h-[100svh] items-end overflow-hidden bg-ink text-ivory">
-      <motion.img src={img('naica-crystals')} alt="Giant gypsum crystal beams inside the Naica cave" style={{ scale }} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      <motion.img src={img('citrine-lineup')} alt="" aria-hidden style={{ scale }} className="absolute inset-0 h-full w-full object-cover opacity-45 blur-[3px]" loading="lazy" />
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30" />
+      <figure className="absolute bottom-24 right-[max(1.25rem,calc((100vw-1440px)/2+3.5rem))] z-[2] hidden w-[220px] rotate-2 border border-ivory/25 bg-ink/60 p-2 backdrop-blur lg:block">
+        <img src={img('storefront-night')} alt="The Crystals World storefront at night" className="aspect-square w-full object-cover" loading="lazy" />
+        <figcaption className="pt-2 text-center text-[10px] uppercase tracking-[0.22em] text-ivory/70">Look for the purple sign</figcaption>
+      </figure>
       <div className="container-x relative z-[2] pb-20 pt-40 md:pb-28">
         <Lines className="display max-w-[15ch] text-[clamp(3rem,7.4vw,7.4rem)]" lines={['Come find something', 'you didn’t know', <em key="k" className="text-bone">you were looking for.</em>]} />
         <Reveal delay={0.2}>
@@ -291,14 +294,11 @@ export function Footer() {
       </div>
       <div className="container-x flex flex-col gap-3 border-t border-ivory/10 py-6 text-[11px] tracking-[0.08em] text-ivory/40 md:flex-row md:justify-between">
         <span>Concept website demo prepared for {SITE.name}. Not the official site.</span>
-        <button onClick={() => setOpen((o) => !o)} className="text-left hover:text-ivory/70" aria-expanded={open}>Photography credits {open ? '−' : '+'}</button>
+        <button onClick={() => setOpen((o) => !o)} className="text-left hover:text-ivory/70" aria-expanded={open}>Photography {open ? '−' : '+'}</button>
       </div>
       {open && (
         <div className="container-x pb-10 text-[11px] leading-6 text-ivory/40">
-          <p className="mb-2">Placeholder photography via Wikimedia Commons, to be replaced with the store’s own photos.</p>
-          {credits.map((c) => (
-            <p key={c.file}><a className="underline-offset-2 hover:underline" href={c.source} target="_blank" rel="noopener noreferrer">{c.title}</a> — {c.artist} · {c.license}</p>
-          ))}
+          <p>All photographs are Crystals World’s own, from the shop and its social media. Small source files were enlarged and lightly sharpened for the web; larger originals will look crisper.</p>
         </div>
       )}
     </footer>

@@ -18,7 +18,7 @@ export const SITE = {
   ],
 }
 
-// All photography is placeholder (Wikimedia Commons, credited in the footer).
-// To use the store's own photos, drop files into public/images and change the paths below.
+// Photography is the shop's own (supplied files + its Instagram/TikTok). Drop larger originals into
+// public/images with the same file names for a crisper result.
 const base = import.meta.env.BASE_URL
 export const img = (name: string) => `${base}images/${name}.jpg`
