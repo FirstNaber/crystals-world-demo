@@ -33,6 +33,7 @@ const routes = [
 for (const v of VAR) {
   routes.push({ path: v.base, preload: preload(v.lcp, v.sizes), title: `Crystals World — Crystal & Mineral Shop in Austin, TX`, desc: `Crystals, minerals and jewelry at ${biz.address.street}, Austin. Shop one-of-a-kind pieces online with free in-store pickup.`, ld: [store] })
   routes.push({ path: `${v.base}/${v.shop}`, title: `Shop crystals, minerals & jewelry — Crystals World, Austin`, desc: 'One-of-a-kind crystals, mineral specimens and jewelry from our Austin shop. Ship or pick up free on Guadalupe St.', ld: [store] })
+  routes.push({ path: `${v.base}/wall`, title: 'The Wall — every piece, by colour — Crystals World', desc: 'Every piece from the Crystals World TikTok, filmed in the shop on Guadalupe St, Austin, sorted by colour.', ld: [store] })
   routes.push({ path: `${v.base}/visit`, title: `Visit Crystals World — 3202 Guadalupe St, Austin TX`, desc: `Directions, phone and hours for Crystals World, ${biz.address.street}, Austin, TX ${biz.address.postal}.`, ld: [store] })
   routes.push({ path: `${v.base}/checkout`, title: 'Checkout — Crystals World', desc: 'Checkout' })
   for (const s of policies) routes.push({ path: `${v.base}/policies/${s}`, title: `${s[0].toUpperCase() + s.slice(1)} — Crystals World`, desc: `Crystals World ${s} policy.` })

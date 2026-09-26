@@ -39,6 +39,7 @@ export function Layout({ children }: { children: ReactNode }) {
           <nav aria-label="Primary" className="flex items-center gap-5 sm:gap-8">
             <Link to={to('visit')} className={`${item} hidden lg:inline-flex`}>Visit · 3202 Guadalupe</Link>
             <Link to={to('collection')} className={`${item} hidden md:inline-flex`}>Collection</Link>
+            <Link to={to('wall')} className={`${item} hidden md:inline-flex`}>The Wall</Link>
             <button ref={indexBtn} className={`${item} inline-flex`} aria-expanded={index} aria-controls="ga-index" onClick={() => setIndex(true)}>Index</button>
             <button className={`${item} inline-flex`} onClick={() => setOpen(true)} aria-label={`Bag (${count}), ${count} ${count === 1 ? 'item' : 'items'}`}>Bag ({count})</button>
           </nav>
@@ -51,7 +52,7 @@ export function Layout({ children }: { children: ReactNode }) {
           <ol className="mt-10 space-y-2">
             {[
               ['Prologue', to() + '#prologue'], ['Room I — Crystals', to('collection') + '?room=crystals'], ['Room II — Minerals', to('collection') + '?room=minerals'],
-              ['Room III — Jewelry', to('collection') + '?room=jewelry'], ['The complete collection', to('collection')], ['Final chapter — Visit', to('visit')],
+              ['Room III — Jewelry', to('collection') + '?room=jewelry'], ['The complete collection', to('collection')], ['The Wall — every piece, by colour', to('wall')], ['Final chapter — Visit', to('visit')],
             ].map(([t, href], i) => (
               <li key={t}><Link to={href} className="flex items-baseline gap-5 py-1"><span className="ga-tiny w-8 !text-[#8d887e]">{String(i).padStart(2, '0')}</span><span className="ga-index-t ga-serif text-[clamp(2.2rem,6vw,4.6rem)] leading-[1.02]">{t}</span></Link></li>))}
           </ol>

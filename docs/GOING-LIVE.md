@@ -58,3 +58,11 @@ For the live store, add:
 - **Optional auto-sync (phase 2).** TikTok's Display API (`video.list`, with the owner signing in once) can list every new post as a draft product. It needs a registered TikTok developer app and TikTok's approval.
 
 Prices, sizes and weights are never in the captions. The owner adds them, and publishing a price is what replaces "DM for details".
+
+## The Wall
+
+`/wall` in every variation is a colour-sorted wall of the shop's own TikTok posts (`src/content/wall.json`, 37 pieces for the demo, covers in `assets-src/w-*.jpg`).
+- **Buyable tiles.** A tile gets a price and an add-to-bag button when a catalog product has the same `tiktok` id. The owner sets this up from **Owner catalog → Your TikTok wall → price → Sell**, so it runs through the normal cart and checkout.
+- **Sold tiles.** They turn grey with "Found a home".
+- **Unpriced tiles.** These show "Call the shop" and "Ask on TikTok".
+- **For launch.** Fill the wall from the TikTok Display API (`video.list`, owner signs in once) or an export of the owner's videos, and copy the covers into the store's media. The colour family is set by hand in the demo. It could be suggested automatically from the cover image and confirmed by the owner with one tap.

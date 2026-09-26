@@ -112,6 +112,32 @@
 
 }
 
+/* ───────────── The Wall (shared by all variations, themed by .vx variables) ───────────── */
+@layer components {
+.wall-chip { display: inline-flex; align-items: center; gap: .5rem; min-height: 40px; padding: 0 .9rem; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; white-space: nowrap; color: var(--fg); background: transparent; transition: background .25s, color .25s, border-color .25s; }
+.wall-chip i { width: 12px; height: 12px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.18); }
+.wall-chip span { color: var(--muted); font-size: 11px; }
+.wall-chip:hover { border-color: var(--fg); }
+.wall-chip.is-on { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.wall-chip.is-on span { color: inherit; opacity: .7; }
+.wall-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; list-style: none; padding: 0; }
+@media (min-width: 1024px) { .wall-grid { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; } }
+.wall-tile { position: relative; display: block; width: 100%; aspect-ratio: 5 / 7; overflow: hidden; background: var(--surface); border-radius: var(--radius); text-align: left; }
+.wall-tile::before { content: ""; position: absolute; z-index: 2; inset: 0 0 auto 0; height: 4px; background: var(--fam); }
+.wall-tile::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.72), rgba(0,0,0,0) 45%); opacity: 0; transition: opacity .35s; }
+.wall-tile .wall-img, .wall-tile picture, .wall-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.1s cubic-bezier(.16,1,.3,1), filter .5s; }
+.wall-tile:hover img, .wall-tile:focus-visible img { transform: scale(1.06); }
+.wall-tile:hover::after, .wall-tile:focus-visible::after { opacity: 1; }
+.wall-name { position: absolute; z-index: 3; left: 12px; right: 12px; bottom: 10px; color: #fff; font-size: 14px; line-height: 1.2; opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s; }
+.wall-tile:hover .wall-name, .wall-tile:focus-visible .wall-name { opacity: 1; transform: none; }
+@media (hover: none) { .wall-tile::after { opacity: 1; } .wall-name { opacity: 1; transform: none; font-size: 12px; } }
+.wall-pill { position: absolute; z-index: 3; top: 12px; left: 8px; padding: 4px 9px; border-radius: 999px; background: rgba(255,255,255,.92); color: #111; font-size: 11px; font-weight: 600; letter-spacing: .02em; }
+.wall-tile .wall-pill + .wall-pill { top: 40px; }
+.wall-tile.is-sold img { filter: grayscale(1) brightness(.8); }
+.wall-sheet { border-radius: calc(var(--radius) + 0px); animation: wall-in .35s cubic-bezier(.16,1,.3,1); }
+@keyframes wall-in { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   [data-rv], [data-rv] > * { opacity: 1 !important; transform: none !important; clip-path: none !important; }

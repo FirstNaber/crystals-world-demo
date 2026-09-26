@@ -17,6 +17,7 @@ export function Layout({ children }: { children: ReactNode }) {
           <Link to={to()} className="vx-display py-3 text-2xl leading-none tracking-[-0.01em]" >CW<span className="sr-only"> — Crystals World, home</span></Link>
           <nav aria-label="Primary" className="flex items-center gap-5 sm:gap-9">
             <Link to={to('collection')} className={item}>Collection</Link>
+            <Link to={to('wall')} className={item}><span className="max-sm:hidden">The </span>Wall</Link>
             <Link to={to('visit')} className={item}>Visit</Link>
             <button className={item} onClick={() => setOpen(true)} aria-label={`Bag (${count}), ${count} ${count === 1 ? 'item' : 'items'}`}>Bag ({count})</button>
           </nav>

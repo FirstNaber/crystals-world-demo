@@ -13,6 +13,7 @@ import { useStore } from '../store'
 import { useSeo } from '../seo'
 import { VARIANTS } from './DevToolbar'
 import { importTikTok, type TikTokDraft } from '../tiktokImport'
+import { WALL, FAMILIES, type WallPost } from './Wall'
 
 /** Downscale a camera photo to ≤1200px JPEG so it fits in browser storage (and uploads fast later). */
 async function shrink(file: File): Promise<string> {
@@ -36,6 +37,8 @@ export function OwnerPage() {
   const [tt, setTt] = useState<TikTokDraft | null>(null)
   const [ttBusy, setTtBusy] = useState(false)
   const [ttMsg, setTtMsg] = useState<string | null>(null)
+  const [wallMsg, setWallMsg] = useState<string | null>(null)
+  const [wallFilter, setWallFilter] = useState<'todo' | 'all'>('todo')
   const formRef = useRef<HTMLFormElement>(null)
   useSeo({ title: `Owner catalog — ${BUSINESS.name}`, description: 'Add, price and mark pieces sold.' })
   const nextNo = useMemo(() => `CW-${String(Math.max(0, ...products.map((p) => parseInt(p.no.replace(/\D/g, '')) || 0)) + 1).padStart(3, '0')}`, [products])
@@ -76,6 +79,19 @@ export function OwnerPage() {
     if (!saveOwnerProduct(p)) return setMsg('This browser is out of storage for photos. Remove an older demo piece and try again.')
     setMsg(`Published ${p.no} · ${p.name}. It’s live in all three versions.`)
     setPhoto(null); setTt(null); setTtMsg(null); formRef.current?.reset(); setOne(true)
+  }
+
+  const putOnSale = (post: WallPost, raw: string) => {
+    const price = Number(raw)
+    if (!(price > 0)) return setWallMsg('Type a price first.')
+    const p: Product = {
+      slug: `${slugify(post.name)}-${post.id.slice(-4)}`, no: nextNo, name: post.name, category: post.category, price,
+      images: [post.image], description: `${post.name}, filmed in the shop. Watch it on our TikTok.`,
+      material: post.material, origin: post.origin, size: null, weight: null,
+      stock: 1, one_of_a_kind: true, sold: false, new: true, featured: false, tiktok: post.id, ownerAdded: true,
+    }
+    if (!saveOwnerProduct(p)) return setWallMsg('This browser is out of storage. Remove an older demo piece and try again.')
+    setWallMsg(`${p.name} is on sale at $${price}. It’s buyable on the Wall and in the shop.`)
   }
 
   const exportJson = () => {
@@ -145,6 +161,30 @@ export function OwnerPage() {
           </div>
           {msg && <p role="status" className="rounded-lg bg-black/5 p-3 text-sm">{msg}</p>}
         </form>
+
+        <h2 className="mt-12 text-2xl font-semibold">Your TikTok wall <span className="text-base font-normal text-black/50">({WALL.length})</span></h2>
+        <p className="mt-1 text-sm text-black/60">Every piece you’ve filmed. Type a price and tap <b>Sell</b>: it gets a buy button on the Wall and joins the shop.</p>
+        <div className="mt-3 flex gap-2 text-sm" role="group" aria-label="Show">
+          {(['todo', 'all'] as const).map((f) => <button key={f} aria-pressed={wallFilter === f} onClick={() => setWallFilter(f)} className={`rounded-full border px-3 py-1.5 ${wallFilter === f ? 'border-black bg-black text-white' : 'border-black/20'}`}>{f === 'todo' ? `Not on sale yet (${WALL.filter((w) => !products.some((p) => p.tiktok === w.id)).length})` : 'All'}</button>)}
+        </div>
+        {wallMsg && <p role="status" className="mt-3 rounded-lg bg-black/5 p-3 text-sm">{wallMsg}</p>}
+        <ul className="mt-4 divide-y divide-black/10 rounded-2xl bg-white shadow-sm">
+          {WALL.map((w) => ({ w, p: products.find((x) => x.tiktok === w.id) })).filter(({ p }) => wallFilter === 'all' || !p).map(({ w, p }) => (
+            <li key={w.id} className="flex items-center gap-3 p-3">
+              <span className="relative block h-16 w-12 shrink-0 overflow-hidden rounded-md bg-black/5"><Img name={w.image} alt="" sizes="48px" className="h-full w-full object-cover" />
+                <i className="absolute inset-x-0 top-0 h-1" style={{ background: FAMILIES.find((f) => f.id === w.family)?.hex }} aria-hidden /></span>
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-sm font-medium">{w.name}</p>
+                <p className="text-xs text-black/50">{w.category}{p ? (isSold(p) ? ' · sold' : p.price != null ? ` · on sale $${p.price}` : ' · in catalog, no price') : ''}</p>
+              </div>
+              {!p && (
+                <form className="flex items-center gap-2" onSubmit={(e) => { e.preventDefault(); putOnSale(w, String(new FormData(e.currentTarget).get('price') ?? '')) }}>
+                  <label><span className="sr-only">Price for {w.name}</span>
+                    <input name="price" type="number" min="1" inputMode="decimal" placeholder="$" className="owner-input !mt-0 w-20 text-right" /></label>
+                  <button className="min-h-11 rounded-full bg-black px-4 text-sm font-semibold text-white">Sell</button>
+                </form>)}
+            </li>))}
+        </ul>
 
         <h2 className="mt-12 text-2xl font-semibold">Catalog <span className="text-base font-normal text-black/50">({products.length})</span></h2>
         <p className="mt-1 text-sm text-black/60">Change a price or mark a piece sold (e.g. it sold at the counter). Updates everywhere at once.</p>

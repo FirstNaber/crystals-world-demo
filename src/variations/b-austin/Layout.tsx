@@ -5,7 +5,7 @@ import { useStore } from '../../shared/store'
 import { useTo } from '../../shared/variation'
 import { CallLink, DemoBar, DirectionsLink, Signup } from '../../shared/ui/bits'
 
-const NAV: [string, string][] = [['Shop all', 'shop'], ['Crystals', 'shop?cat=crystals'], ['Minerals', 'shop?cat=minerals'], ['Jewelry', 'shop?cat=jewelry'], ['Visit', 'visit']]
+const NAV: [string, string][] = [['Shop all', 'shop'], ['Crystals', 'shop?cat=crystals'], ['Minerals', 'shop?cat=minerals'], ['Jewelry', 'shop?cat=jewelry'], ['The Wall', 'wall'], ['Visit', 'visit']]
 
 export function Layout({ children }: { children: ReactNode }) {
   const { count, setOpen } = useStore(); const to = useTo(); const { pathname } = useLocation()

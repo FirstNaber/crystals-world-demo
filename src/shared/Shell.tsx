@@ -10,6 +10,7 @@ import { Checkout, Confirmation } from './ui/Checkout'
 import { NotFound, PolicyPage, VisitPage } from './ui/pages'
 import { MotionManager, ScrollTop } from './motion'
 import { DevToolbar } from './ui/DevToolbar'
+import { WallPage } from './ui/Wall'
 
 function Order() { const { id } = useParams(); return <Confirmation id={id ?? ''} /> }
 
@@ -35,6 +36,7 @@ export function VariationShell({ v, Layout, Home, Shop, Product, extra }: {
             <Route index element={<Home />} />
             <Route path={v.shop} element={<Shop />} />
             <Route path={`${v.shop}/:slug`} element={<Product />} />
+            <Route path="wall" element={<WallPage />} />
             <Route path="visit" element={<VisitPage />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="order/:id" element={<Order />} />

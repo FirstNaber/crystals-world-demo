@@ -1,0 +1,338 @@
+{
+ "_README": "The Wall: the shop's own TikTok posts of individual pieces. Names come from their captions; 'family' is the colour group used to order the wall. A post becomes buyable when a catalog product has the same tiktok id.",
+ "posts": [
+  {
+   "id": "7665907216905473311",
+   "name": "Amethyst on Stand",
+   "category": "minerals",
+   "family": "violet",
+   "material": "Amethyst",
+   "origin": null,
+   "image": "w-7665907216905473311"
+  },
+  {
+   "id": "7666150821616291103",
+   "name": "Citrine Pendant",
+   "category": "jewelry",
+   "family": "amber",
+   "material": "Citrine",
+   "origin": null,
+   "image": "w-7666150821616291103"
+  },
+  {
+   "id": "7666166763343727902",
+   "name": "Lapis Lazuli Pendant",
+   "category": "jewelry",
+   "family": "blue",
+   "material": "Lapis Lazuli",
+   "origin": null,
+   "image": "w-7666166763343727902"
+  },
+  {
+   "id": "7666177292405640479",
+   "name": "Amethyst Pendant",
+   "category": "jewelry",
+   "family": "violet",
+   "material": "Amethyst",
+   "origin": null,
+   "image": "w-7666177292405640479"
+  },
+  {
+   "id": "7666299663573667103",
+   "name": "Amber Earrings",
+   "category": "jewelry",
+   "family": "amber",
+   "material": "Amber",
+   "origin": null,
+   "image": "w-7666299663573667103"
+  },
+  {
+   "id": "7666308325461495071",
+   "name": "Jade Earrings",
+   "category": "jewelry",
+   "family": "green",
+   "material": "Jade",
+   "origin": null,
+   "image": "w-7666308325461495071"
+  },
+  {
+   "id": "7666655774591962399",
+   "name": "Lapis Lazuli Necklace",
+   "category": "jewelry",
+   "family": "blue",
+   "material": "Lapis Lazuli",
+   "origin": null,
+   "image": "w-7666655774591962399"
+  },
+  {
+   "id": "7666661710358465823",
+   "name": "Citrine",
+   "category": "minerals",
+   "family": "amber",
+   "material": "Citrine",
+   "origin": null,
+   "image": "w-7666661710358465823"
+  },
+  {
+   "id": "7668156922465455390",
+   "name": "Epidote",
+   "category": "minerals",
+   "family": "green",
+   "material": "Epidote",
+   "origin": null,
+   "image": "w-7668156922465455390"
+  },
+  {
+   "id": "7668509134458834206",
+   "name": "Tiger Eye Pendant",
+   "category": "jewelry",
+   "family": "gold",
+   "material": "Tiger Eye",
+   "origin": null,
+   "image": "w-7668509134458834206"
+  },
+  {
+   "id": "7668512600447126814",
+   "name": "Black Tourmaline Pendant",
+   "category": "jewelry",
+   "family": "black",
+   "material": "Black Tourmaline",
+   "origin": null,
+   "image": "w-7668512600447126814"
+  },
+  {
+   "id": "7668515100101266718",
+   "name": "Amethyst Pendant",
+   "category": "jewelry",
+   "family": "violet",
+   "material": "Amethyst",
+   "origin": null,
+   "image": "w-7668515100101266718"
+  },
+  {
+   "id": "7668887875844312350",
+   "name": "Fluorite",
+   "category": "minerals",
+   "family": "gold",
+   "material": "Fluorite",
+   "origin": null,
+   "image": "w-7668887875844312350"
+  },
+  {
+   "id": "7669253645367659807",
+   "name": "Lapis Lazuli Earrings",
+   "category": "jewelry",
+   "family": "blue",
+   "material": "Lapis Lazuli",
+   "origin": null,
+   "image": "w-7669253645367659807"
+  },
+  {
+   "id": "7669256299321855263",
+   "name": "Garnet Earrings",
+   "category": "jewelry",
+   "family": "red",
+   "material": "Garnet",
+   "origin": null,
+   "image": "w-7669256299321855263"
+  },
+  {
+   "id": "7671850475062316318",
+   "name": "Malachite Pendant",
+   "category": "jewelry",
+   "family": "green",
+   "material": "Malachite",
+   "origin": null,
+   "image": "w-7671850475062316318"
+  },
+  {
+   "id": "7671852036517907742",
+   "name": "Jade Pendant",
+   "category": "jewelry",
+   "family": "green",
+   "material": "Jade",
+   "origin": null,
+   "image": "w-7671852036517907742"
+  },
+  {
+   "id": "7673348164346236190",
+   "name": "Herkimer Diamond Pendant",
+   "category": "jewelry",
+   "family": "clear",
+   "material": "Herkimer Diamond",
+   "origin": null,
+   "image": "w-7673348164346236190"
+  },
+  {
+   "id": "7673705100174527775",
+   "name": "Fluorite Specimen",
+   "category": "minerals",
+   "family": "gold",
+   "material": "Fluorite",
+   "origin": null,
+   "image": "w-7673705100174527775"
+  },
+  {
+   "id": "7673710453482065183",
+   "name": "Blue Aragonite Specimen",
+   "category": "minerals",
+   "family": "teal",
+   "material": "Blue Aragonite",
+   "origin": null,
+   "image": "w-7673710453482065183"
+  },
+  {
+   "id": "7675188340613713182",
+   "name": "Fluorite Specimen",
+   "category": "minerals",
+   "family": "brown",
+   "material": "Fluorite",
+   "origin": null,
+   "image": "w-7675188340613713182"
+  },
+  {
+   "id": "7675555149133253919",
+   "name": "Yellow Quartz",
+   "category": "minerals",
+   "family": "gold",
+   "material": "Yellow Quartz",
+   "origin": null,
+   "image": "w-7675555149133253919"
+  },
+  {
+   "id": "7677782234543197470",
+   "name": "Amethyst Heart on Stand",
+   "category": "crystals",
+   "family": "violet",
+   "material": "Amethyst",
+   "origin": null,
+   "image": "w-7677782234543197470"
+  },
+  {
+   "id": "7678157322471902494",
+   "name": "Lapis Lazuli Necklace",
+   "category": "jewelry",
+   "family": "blue",
+   "material": "Lapis Lazuli",
+   "origin": null,
+   "image": "w-7678157322471902494"
+  },
+  {
+   "id": "7678524286105095455",
+   "name": "Lapis Lazuli Heart on Stand",
+   "category": "crystals",
+   "family": "blue",
+   "material": "Lapis Lazuli",
+   "origin": null,
+   "image": "w-7678524286105095455"
+  },
+  {
+   "id": "7678910897934404895",
+   "name": "Lapis Lazuli Table Clock",
+   "category": "crystals",
+   "family": "blue",
+   "material": "Lapis Lazuli",
+   "origin": null,
+   "image": "w-7678910897934404895"
+  },
+  {
+   "id": "7680383408584822046",
+   "name": "Blue Aragonite Moon",
+   "category": "crystals",
+   "family": "teal",
+   "material": "Blue Aragonite",
+   "origin": null,
+   "image": "w-7680383408584822046"
+  },
+  {
+   "id": "7681131022460783902",
+   "name": "Amethyst on Stand",
+   "category": "minerals",
+   "family": "violet",
+   "material": "Amethyst",
+   "origin": null,
+   "image": "w-7681131022460783902"
+  },
+  {
+   "id": "7681491807154212126",
+   "name": "Lapis Lazuli Freeform",
+   "category": "crystals",
+   "family": "blue",
+   "material": "Lapis Lazuli",
+   "origin": null,
+   "image": "w-7681491807154212126"
+  },
+  {
+   "id": "7681497216254627102",
+   "name": "Natural White Onyx Blue Shade Vase",
+   "category": "crystals",
+   "family": "clear",
+   "material": "White Onyx",
+   "origin": null,
+   "image": "w-7681497216254627102"
+  },
+  {
+   "id": "7683355028903464223",
+   "name": "Epidote Quartz",
+   "category": "minerals",
+   "family": "clear",
+   "material": "Epidote",
+   "origin": null,
+   "image": "w-7683355028903464223"
+  },
+  {
+   "id": "7683360510019931423",
+   "name": "Iron Tiger Eye Freeform",
+   "category": "crystals",
+   "family": "brown",
+   "material": "Iron Tiger Eye",
+   "origin": null,
+   "image": "w-7683360510019931423"
+  },
+  {
+   "id": "7683720938491497758",
+   "name": "Pistachio Calcite Heart",
+   "category": "crystals",
+   "family": "green",
+   "material": "Pistachio Calcite",
+   "origin": null,
+   "image": "w-7683720938491497758"
+  },
+  {
+   "id": "7684082348610145567",
+   "name": "Amethyst Pendant",
+   "category": "jewelry",
+   "family": "violet",
+   "material": "Amethyst",
+   "origin": null,
+   "image": "w-7684082348610145567"
+  },
+  {
+   "id": "7685822439762300191",
+   "name": "Lapis Lazuli Custom Design Necklace",
+   "category": "jewelry",
+   "family": "blue",
+   "material": "Lapis Lazuli",
+   "origin": null,
+   "image": "w-7685822439762300191"
+  },
+  {
+   "id": "7685941647338720543",
+   "name": "Citrine on Stand from Brazil",
+   "category": "crystals",
+   "family": "amber",
+   "material": "Citrine",
+   "origin": "Brazil",
+   "image": "w-7685941647338720543"
+  },
+  {
+   "id": "7686325204833815838",
+   "name": "Citrine Heart on Stand from Brazil",
+   "category": "crystals",
+   "family": "amber",
+   "material": "Citrine",
+   "origin": "Brazil",
+   "image": "w-7686325204833815838"
+  }
+ ]
+}
