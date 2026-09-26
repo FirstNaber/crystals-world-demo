@@ -47,3 +47,14 @@ Goal: a piece sold in person can never also sell online.
 
 ## Launch checklist
 Remove `noindex` from `index.html`; set the real domain in `SITE_URL` (`src/shared/seo.tsx`, `scripts/prerender.mjs`); supply hours; replace sample prices/stock with real ones; replace enlarged thumbnails with original full-size photos.
+
+## TikTok import (owner catalog)
+
+The owner catalog can fill in a new piece from one of the shop's TikTok links: name, category and material from the caption, cover photo, and the video on the product page. It uses TikTok's public oEmbed endpoint (`src/shared/tiktokImport.ts`), with no login or API key.
+
+For the live store, add:
+- **Short share links.** Links shared from the TikTok app (`vm.tiktok.com/…`, `tiktok.com/t/…`) can't be read from the browser. Add a small server function that follows the redirect to the full `tiktok.com/@crystals_world01/video/<id>` address.
+- **Permanent photos.** TikTok's cover-image links expire after about two days. Copy the image into the store's product media at import. The demo keeps a local copy in the browser.
+- **Optional auto-sync (phase 2).** TikTok's Display API (`video.list`, with the owner signing in once) can list every new post as a draft product. It needs a registered TikTok developer app and TikTok's approval.
+
+Prices, sizes and weights are never in the captions. The owner adds them, and publishing a price is what replaces "DM for details".

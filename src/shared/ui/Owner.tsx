@@ -12,6 +12,7 @@ import { Img } from '../Img'
 import { useStore } from '../store'
 import { useSeo } from '../seo'
 import { VARIANTS } from './DevToolbar'
+import { importTikTok, type TikTokDraft } from '../tiktokImport'
 
 /** Downscale a camera photo to ≤1200px JPEG so it fits in browser storage (and uploads fast later). */
 async function shrink(file: File): Promise<string> {
@@ -32,9 +33,32 @@ export function OwnerPage() {
   const [msg, setMsg] = useState<string | null>(null)
   const [one, setOne] = useState(true)
   const [busy, setBusy] = useState(false)
+  const [tt, setTt] = useState<TikTokDraft | null>(null)
+  const [ttBusy, setTtBusy] = useState(false)
+  const [ttMsg, setTtMsg] = useState<string | null>(null)
   const formRef = useRef<HTMLFormElement>(null)
   useSeo({ title: `Owner catalog — ${BUSINESS.name}`, description: 'Add, price and mark pieces sold.' })
   const nextNo = useMemo(() => `CW-${String(Math.max(0, ...products.map((p) => parseInt(p.no.replace(/\D/g, '')) || 0)) + 1).padStart(3, '0')}`, [products])
+
+  const fromTikTok = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const box = e.currentTarget   // React clears currentTarget once we await
+    const link = String(new FormData(box).get('link') ?? '')
+    setTtBusy(true); setTtMsg(null); setMsg(null)
+    try {
+      const d = await importTikTok(link)
+      const el = (n: string) => formRef.current?.elements.namedItem(n) as HTMLInputElement | HTMLSelectElement | null
+      const name = el('name'); if (name) name.value = d.name
+      const cat = el('category'); if (cat) cat.value = d.category
+      const mat = el('material'); if (mat) mat.value = d.material ?? ''
+      setPhoto(d.cover); setTt(d); setOne(true)
+      setTtMsg(`Filled in from TikTok. Add a price and publish.`)
+      box.reset()
+      setTimeout(() => (el('price') as HTMLInputElement | null)?.focus(), 50)
+    } catch (err) {
+      setTtMsg(err instanceof Error ? err.message : 'Couldn’t reach TikTok. Check the connection and try again.')
+    } finally { setTtBusy(false) }
+  }
 
   const publish = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -46,12 +70,12 @@ export function OwnerPage() {
     const p: Product = {
       slug, no: nextNo, name: f.name.trim(), category: (f.category as Category) || 'crystals', price: price && price > 0 ? price : null,
       images: [photo], description: f.description?.trim() || `${f.name.trim()}, photographed in the shop.`,
-      material: f.material?.trim() || null, origin: null, size: f.size?.trim() || null, weight: null,
-      stock: one ? 1 : Math.max(1, Number(f.qty) || 1), one_of_a_kind: one, sold: false, new: true, featured: true, tiktok: null, ownerAdded: true,
+      material: f.material?.trim() || null, origin: tt?.origin ?? null, size: f.size?.trim() || null, weight: null,
+      stock: one ? 1 : Math.max(1, Number(f.qty) || 1), one_of_a_kind: one, sold: false, new: true, featured: true, tiktok: tt?.id ?? null, ownerAdded: true,
     }
     if (!saveOwnerProduct(p)) return setMsg('This browser is out of storage for photos. Remove an older demo piece and try again.')
     setMsg(`Published ${p.no} · ${p.name}. It’s live in all three versions.`)
-    setPhoto(null); formRef.current?.reset(); setOne(true)
+    setPhoto(null); setTt(null); setTtMsg(null); formRef.current?.reset(); setOne(true)
   }
 
   const exportJson = () => {
@@ -68,10 +92,23 @@ export function OwnerPage() {
         </div>
       </header>
       <main className="mx-auto max-w-3xl px-4 pb-24">
-        <p className="mt-4 rounded-lg border border-amber-700/30 bg-amber-50 p-3 text-sm">Demo: pieces are saved in this browser only and appear instantly in all three versions. In the live store this screen is the Shopify app on your phone.</p>
+        <p className="mt-4 rounded-lg border border-amber-700/30 bg-amber-50 p-3 text-sm">Demo: pieces are saved in this browser only and appear instantly in all three versions. In the live store, TikTok import and the rest of this screen connect to the store's product catalog.</p>
 
         <h1 className="mt-8 text-3xl font-semibold">Add a piece</h1>
-        <p className="mt-1 text-sm text-black/60">Snap it, name it, price it, publish. About 30 seconds.</p>
+        <p className="mt-1 text-sm text-black/60">Already posted it on TikTok? Paste the link and we fill in the rest. Or snap a photo below.</p>
+
+        <form onSubmit={fromTikTok} className="mt-6 rounded-2xl bg-black p-5 text-white shadow-sm">
+          <label className="block"><span className="text-sm font-medium">From your TikTok</span>
+            <span className="mt-1 block text-xs text-white/60">Paste a video link. The name, photo and video come in automatically.</span>
+            <div className="mt-3 flex gap-2">
+              <input name="link" type="url" inputMode="url" required placeholder="https://www.tiktok.com/@crystals_world01/video/…" className="owner-input !mt-0 min-w-0 flex-1 text-black" />
+              <button className="shrink-0 rounded-full bg-white px-5 text-sm font-semibold text-black disabled:opacity-50" disabled={ttBusy}>{ttBusy ? 'Fetching…' : 'Fill in'}</button>
+            </div>
+          </label>
+          {ttMsg && <p role="status" className="mt-3 text-sm text-white/85">{ttMsg}</p>}
+        </form>
+
+        <p className="mt-6 text-center text-xs uppercase tracking-widest text-black/40">{tt ? 'Check it, add a price, publish' : 'or add it by hand'}</p>
         <form ref={formRef} onSubmit={publish} className="mt-6 space-y-5 rounded-2xl bg-white p-5 shadow-sm">
           <div>
             <span className="text-sm font-medium">Photo</span>
@@ -83,6 +120,7 @@ export function OwnerPage() {
               }} />
             </label>
           </div>
+          {tt && <p className="flex items-center justify-between gap-3 rounded-lg bg-black/5 p-3 text-xs"><span className="min-w-0 truncate">Linked to TikTok video {tt.id}{tt.origin ? ` · origin: ${tt.origin}` : ''}</span><a href={tt.url} target="_blank" rel="noopener noreferrer" className="shrink-0 underline">View</a></p>}
           <label className="block"><span className="text-sm font-medium">Name</span><input name="name" className="owner-input" placeholder="e.g. Amethyst Cluster on Stand" required /></label>
           <div className="grid grid-cols-2 gap-4">
             <label className="block"><span className="text-sm font-medium">Category</span>
