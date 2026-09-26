@@ -1,0 +1,41 @@
+{
+  "_README": "Business facts. Only verified facts live here; anything unknown is null and shows as a [PLACEHOLDER] on the site. Sources: Google Business listing, Linktree, the shop's own TikTok captions.",
+  "name": "Crystals World",
+  "type": "Rock & Crystal Shop",
+  "tagline": null,
+  "address": { "street": "3202 Guadalupe St Ste C", "city": "Austin", "region": "TX", "postal": "78705", "country": "US", "neighborhood": null },
+  "phone": "(737) 320-8079",
+  "phoneE164": "+17373208079",
+  "email": null,
+  "hours": null,
+  "hoursNote": "Google lists a closing time of 10 PM. Full weekly hours to be confirmed by the owner.",
+  "services": ["In-store pickup", "Retail", "Wholesale", "Shipping (USPS, UPS, DHL) — US & worldwide"],
+  "google": {
+    "rating": 5.0,
+    "reviewCount": 203,
+    "profileUrl": "https://www.google.com/maps/search/?api=1&query=Crystals+World+3202+Guadalupe+St+Ste+C+Austin+TX+78705",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Crystals+World%2C+3202+Guadalupe+St+Ste+C%2C+Austin%2C+TX+78705",
+    "embedUrl": "https://www.google.com/maps?q=Crystals+World+3202+Guadalupe+St+Ste+C+Austin+TX+78705&output=embed"
+  },
+  "reviewThemes": ["Beautiful selection", "Knowledgeable service", "Welcoming atmosphere", "Fair prices", "Clean, organized shop"],
+  "reviews": [
+    { "text": "This store has the most beautiful pieces, the vibe and the staff is unmatched!", "source": "Google review" },
+    { "text": "Such a nice place with nice owner, gave me nice discount for my first visit!", "source": "Google review" },
+    { "text": "Great service and super clean organized environment.", "source": "Google review" }
+  ],
+  "social": {
+    "instagram": "https://www.instagram.com/crystals_world01/",
+    "instagramHandle": "@crystals_world01",
+    "tiktok": "https://www.tiktok.com/@crystals_world01",
+    "facebook": "https://www.facebook.com/share/19NQg3GGVh/",
+    "yelp": "https://www.yelp.com/biz/crystals-world-austin",
+    "linktree": "https://linktr.ee/Crystalsworld001"
+  },
+  "tiktokStats": { "followers": "40.7K", "likes": "476K", "videos": "447", "asOf": "Sept 2026" },
+  "wholesale": "Retail & wholesale supplier of crystals, minerals, gemstones and jewelry (from the shop's TikTok bio). Wholesale enquiries by DM.",
+  "shippingCarriers": ["USPS", "UPS", "DHL"],
+  "ownerStory": null,
+  "parking": null,
+  "accessibility": null,
+  "texasSalesTaxRate": 0.0825
+}

@@ -1,0 +1,342 @@
+{
+ "amethyst-crescent": {
+  "w": 998,
+  "h": 1000,
+  "widths": [
+   480,
+   960,
+   1440
+  ]
+ },
+ "amethyst-crescent-detail": {
+  "w": 579,
+  "h": 580,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "amethyst-druzy-heart": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "amethyst-druzy-heart-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "amethyst-slab": {
+  "w": 1000,
+  "h": 1000,
+  "widths": [
+   480,
+   960,
+   1440
+  ]
+ },
+ "amethyst-slab-detail": {
+  "w": 580,
+  "h": 580,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "amethyst-tower": {
+  "w": 1000,
+  "h": 999,
+  "widths": [
+   480,
+   960,
+   1440
+  ]
+ },
+ "amethyst-tower-detail": {
+  "w": 580,
+  "h": 579,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "blue-aragonite-moon": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "blue-aragonite-moon-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "citrine-cluster": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "citrine-cluster-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "citrine-druzy-heart": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "citrine-druzy-heart-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "epidote-quartz": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "epidote-quartz-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "fluorite-specimen": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "fluorite-specimen-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "garnet-earrings": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "garnet-earrings-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "herkimer-pendant": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "herkimer-pendant-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "jade-pendant": {
+  "w": 405,
+  "h": 720,
+  "widths": [
+   480
+  ]
+ },
+ "jade-pendant-detail": {
+  "w": 235,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "lapis-bead-necklace": {
+  "w": 405,
+  "h": 720,
+  "widths": [
+   480
+  ]
+ },
+ "lapis-bead-necklace-detail": {
+  "w": 235,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "lapis-freeform": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "lapis-freeform-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "lapis-heart": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "lapis-heart-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "lapis-triple-necklace": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "lapis-triple-necklace-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "pistachio-calcite-heart": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "pistachio-calcite-heart-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "tiger-iron-freeform": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "tiger-iron-freeform-detail": {
+  "w": 292,
+  "h": 418,
+  "widths": [
+   480
+  ]
+ },
+ "citrine-lineup": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "counter": {
+  "w": 722,
+  "h": 1280,
+  "widths": [
+   480,
+   960,
+   1440
+  ]
+ },
+ "interior-jewelry": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "interior-shelves": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "interior-window": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "mineral-case": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ },
+ "storefront-night": {
+  "w": 729,
+  "h": 732,
+  "widths": [
+   480,
+   960,
+   1440
+  ]
+ },
+ "storefront-tall": {
+  "w": 503,
+  "h": 720,
+  "widths": [
+   480,
+   960
+  ]
+ }
+}
