@@ -17,10 +17,10 @@ export function Layout({ children }: { children: ReactNode }) {
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-4 sm:px-8">
           <Link to={to()} className="py-3" aria-label="Crystals World, home"><SignLogo className="w-[104px] sm:w-[178px]" /></Link>
           <nav aria-label="Primary" className="flex items-center gap-3.5 sm:gap-9">
-            <Link to={to('collection')} className={item}>Collection</Link>
+            <Link to={to('collection')} className={`${item} max-sm:hidden`}>Collection</Link>
             <Link to={to('wall')} className={item}><span className="max-sm:hidden">The </span>Wall</Link>
             <Link to={to('visit')} className={item}>Visit</Link>
-            <button className={item} onClick={() => setOpen(true)} aria-label={`Bag (${count}), ${count} ${count === 1 ? 'item' : 'items'}`}>Bag ({count})</button>
+            <button className={`${item} whitespace-nowrap`} onClick={() => setOpen(true)} aria-label={`Bag (${count}), ${count} ${count === 1 ? 'item' : 'items'}`}>Bag ({count})</button>
           </nav>
         </div>
       </header>
