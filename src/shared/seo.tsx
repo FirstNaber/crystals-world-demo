@@ -6,7 +6,7 @@
 import { useEffect } from 'react'
 import { ADDRESS_LINE, BUSINESS, type Product } from './content'
 
-const SITE_URL = 'https://firstnaber.github.io' // [PLACEHOLDER: production domain]
+const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://firstnaber.github.io' // set VITE_SITE_URL per deploy
 
 function setMeta(attr: 'name' | 'property', key: string, value: string) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`)

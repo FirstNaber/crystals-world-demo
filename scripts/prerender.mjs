@@ -5,7 +5,7 @@ import { join } from 'node:path'
 
 const DIST = 'dist'
 const BASE = process.env.BASE_PATH ?? '/crystals-world-variations/'
-const SITE = 'https://firstnaber.github.io' // [PLACEHOLDER: production domain]
+const SITE = process.env.VITE_SITE_URL || 'https://firstnaber.github.io' // set VITE_SITE_URL per deploy
 const biz = JSON.parse(readFileSync('src/content/business.json', 'utf8'))
 const { products } = JSON.parse(readFileSync('src/content/products.json', 'utf8'))
 const images = JSON.parse(readFileSync('src/content/images.json', 'utf8'))

@@ -3,15 +3,11 @@ import { Link } from 'react-router-dom'
 import { useEffect, type ReactNode } from 'react'
 import { Img } from '../shared/Img'
 
-const DIRECTIONS = [
-  { path: '/variation-a-gallery', tag: 'A', title: 'The Gallery', text: 'An exhibition. Specimens as art objects, each one an “acquisition”.', img: 'amethyst-tower' },
-  { path: '/variation-b-austin', tag: 'B', title: 'The Austin Destination', text: 'A warm Guadalupe St boutique with a proper shop and pickup up front.', img: 'interior-window' },
-  { path: '/variation-c-collector', tag: 'C', title: 'The Collector', text: 'Black, ivory and stone. The collection is the shop.', img: 'tiger-iron-freeform' },
-]
-
-const FILMS = [
-  { href: 'https://firstnaber.github.io/crystals-world-film/', title: 'Light, held', img: 'film-light' },
-  { href: 'https://firstnaber.github.io/crystals-world-film-2/', title: 'The Specimen Room', img: 'film-specimen' },
+// The three sites we pitch. The Specimen Room is the one we recommend; it lives next to this app at <base>/film/.
+const DIRECTIONS: { href: string; external?: boolean; tag: string; title: string; text: string; img: string; pick?: boolean }[] = [
+  { href: `${import.meta.env.BASE_URL}film/`, external: true, tag: '1', title: 'The Specimen Room', text: 'Your homepage opens on an amethyst film that plays as visitors scroll, under your own sign lettering, then hands over to the shop.', img: 'film-specimen', pick: true },
+  { href: '/variation-b-austin', tag: '2', title: 'The Austin Destination', text: 'A warm Guadalupe St boutique with the shop and pickup right up front.', img: 'interior-window' },
+  { href: '/variation-c-collector', tag: '3', title: 'The Collector', text: 'Black, ivory and stone. Big type, and the collection is the shop.', img: 'tiger-iron-freeform' },
 ]
 
 // Stripe Payment Links (public URLs, safe to ship). Empty = button hidden.
@@ -39,20 +35,21 @@ export default function Switcher() {
         <h1 className="mt-3 max-w-4xl text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">A website that sells what you already post.</h1>
         <p className="mt-4 max-w-2xl text-lg text-black/70">You already have the customers and the reputation: a 5.0 rating from 203 Google reviews. This gives every piece a home online, with a price, a checkout and free pickup on Guadalupe. Open everything on your phone too.</p>
 
-        <Step n="01" title="Pick a direction" note="Same store, same checkout, same owner tools. Three ways for it to feel." />
+        <Step n="01" title="Pick a direction" note="Same store, same checkout, same owner tools. Three ways for it to feel. I recommend the first." />
         <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {DIRECTIONS.map((v) => (
-            <li key={v.path}>
-              <Link to={v.path} className="group block h-full overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition-shadow hover:shadow-lg">
+          {DIRECTIONS.map((v) => {
+            const cls = `group relative block h-full overflow-hidden rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-lg ${v.pick ? 'ring-2 ring-black' : 'ring-1 ring-black/5'}`
+            const inner = (<>
                 <div className="aspect-[16/10] overflow-hidden bg-black/5"><Img name={v.img} alt="" sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" /></div>
                 <div className="flex items-start gap-4 p-5">
                   <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-black text-sm font-semibold text-white">{v.tag}</span>
                   <div><p className="text-xl font-semibold">{v.title}</p><p className="mt-1 text-sm text-black/65">{v.text}</p><p className="mt-3 text-sm font-medium underline underline-offset-4">Open {v.title} →</p></div>
                 </div>
-              </Link>
-            </li>))}
+                {v.pick && <span className="absolute left-4 top-4 rounded-full bg-black px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-white">Recommended</span>}
+              </>)
+            return <li key={v.href}>{v.external ? <a href={v.href} className={cls}>{inner}</a> : <Link to={v.href} className={cls}>{inner}</Link>}</li>
+          })}
         </ul>
-        <p className="mt-4 text-sm text-black/55">Where we started: <Link className="underline" to="/original">the original one-page demo</Link>.</p>
 
         <Step n="02" title="Your plan" note="You’re my founding client, so you get the full website and store at a founding rate." />
         <div className="mt-8 grid gap-6 lg:grid-cols-[1.25fr_1fr]">
@@ -68,6 +65,7 @@ export default function Switcher() {
             <p className="mt-6 text-sm font-semibold">What’s included</p>
             <ul className="mt-2 space-y-2 text-[15px]">
               <Tick>The design direction you pick, built on your real photos</Tick>
+              <Tick>With The Specimen Room: the amethyst scroll-film homepage and your sign lettering as a logo</Tick>
               <Tick>Online store with checkout, shipping and free in-store pickup</Tick>
               <Tick>Add a piece from your phone: snap a photo, set a price, mark it sold</Tick>
               <Tick>Your first 25 pieces loaded for you</Tick>
@@ -93,15 +91,6 @@ export default function Switcher() {
             <ul className="mt-6 divide-y divide-black/10 text-[15px]">
               <li className="py-4"><b>Connect your channels.</b> eBay, Facebook and Instagram, TikTok and your counter on one inventory, so a piece sold anywhere shows as sold everywhere. <span className="text-black/55">Quoted after a short call.</span></li>
               <li className="py-4"><b>Sell straight from TikTok.</b> Paste a video link and the listing fills itself in; <Link className="underline" to="/variation-b-austin/wall">the Wall</Link> shows every piece you’ve filmed. <span className="text-black/55">Quoted after a short call.</span></li>
-              <li className="py-4"><b>Scroll-film opening.</b> A cinematic film that plays as visitors scroll. <span className="text-black/55">From $1,200, plus film production at cost.</span>
-                <span className="mt-3 grid grid-cols-2 gap-3">
-                  {FILMS.map((f) => (
-                    <a key={f.href} href={f.href} target="_blank" rel="noopener noreferrer" className="group block overflow-hidden rounded-xl ring-1 ring-black/5">
-                      <span className="block aspect-[16/10] overflow-hidden bg-black/5"><Img name={f.img} alt="" sizes="(min-width:1024px) 20vw, 50vw" className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]" /></span>
-                      <span className="block p-2 text-xs font-medium">{f.title} ↗</span>
-                    </a>))}
-                </span>
-              </li>
             </ul>
           </section>
         </div>
